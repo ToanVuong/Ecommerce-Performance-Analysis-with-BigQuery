@@ -79,18 +79,26 @@ To extract product-level data, the project uses:
 
 ### 🔑 Key Fields
 
-| Column               | Description        |
-| -------------------- | ------------------ |
-| fullVisitorId        | Unique visitor ID  |
-| date                 | Session date       |
-| totals.visits        | Number of sessions |
-| totals.pageviews     | Pageviews          |
-| totals.transactions  | Transactions       |
-| totals.bounces       | Bounce indicator   |
-| trafficSource.source | Traffic source     |
-| productRevenue       | Revenue            |
-| v2ProductName        | Product name       |
-
+| Field Name | Data Type | Description |
+|---|---|---|
+| `fullVisitorId` | STRING | The unique visitor ID. |
+| `date` | STRING | The date of the session in `YYYYMMDD` format. |
+| `totals` | RECORD | Aggregate values across the session. |
+| `totals.bounces` | INTEGER | Total bounces (for convenience). For a bounced session, the value is `1`, otherwise it is `NULL`. |
+| `totals.hits` | INTEGER | Total number of hits within the session. |
+| `totals.pageviews` | INTEGER | Total number of pageviews within the session. |
+| `totals.visits` | INTEGER | The number of sessions (for convenience). This value is `1` for sessions with interaction events. The value is `NULL` if there are no interaction events in the session. |
+| `totals.transactions` | INTEGER | Total number of ecommerce transactions within the session. |
+| `trafficSource.source` | STRING | The source of the traffic source. Could be the name of the search engine, the referring hostname, or a value of the `utm_source` URL parameter. |
+| `hits` | RECORD | Populated for any and all types of hits. Typically a repeated record (multiple hits per session). |
+| `hits.eCommerceAction` | RECORD | Ecommerce hits that occurred during the session. Repeated field with an entry for each collected hit. |
+| `hits.eCommerceAction.action_type` | STRING | Action type: `1`=Product list click, `2`=Product detail view, `3`=Add to cart, `4`=Remove from cart, `5`=Checkout, `6`=Purchase, `7`=Refund, `8`=Checkout options, `0`=Unknown. Usually applies to all products in a hit, except when `hits.product.isImpression = TRUE` (product impression in list view). |
+| `hits.product` | RECORD | Populated for each hit containing Enhanced Ecommerce PRODUCT data. |
+| `hits.product.productQuantity` | INTEGER | The quantity of the product purchased. |
+| `hits.product.productRevenue` | INTEGER | Product revenue in micros (`value * 10^6`; e.g., `2.40` → `2400000`). |
+| `hits.product.productSKU` | STRING | Product SKU. |
+| `hits.product.v2ProductName` | STRING | Product name. |
+| `device.deviceCategory` | STRING | Device type (`Mobile`, `Tablet`, `Desktop`). |
 ---
 
 ## ⚙️ Main Process
