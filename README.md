@@ -414,24 +414,5 @@ ORDER BY month, product_name;
 
 ---
 
-## 📎 Repository Structure
 
-```bash
-project-folder/
-│
-├── sql/
-│   └── ecommerce_performance_analysis.sql
-├── images/
-│   ├── schema.png
-│   ├── query_1_result.png
-│   ├── query_2_result.png
-│   ├── query_3_result.png
-│   ├── query_4_result.png
-│   ├── query_5_result.png
-│   ├── query_6_result.png
-│   ├── query_7_result.png
-│   └── query_8_result.png
-├── README.md
-└── notes/
-```
 
