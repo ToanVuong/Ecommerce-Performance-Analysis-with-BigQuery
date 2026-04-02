@@ -371,19 +371,7 @@ SELECT
 FROM product_data
 ORDER BY month, product_name;
 ```
-
 ***
-
-## 🚀 Skills Demonstrated
-
-*   BigQuery Standard SQL
-*   Google Analytics data modeling
-*   UNNEST & nested field handling
-*   Funnel & cohort analysis
-*   E‑commerce KPI analytics
-
-***
-
 ## 🔎 Final Conclusion & Recommendations
 
 ### 📍 Key Takeaways
