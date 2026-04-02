@@ -392,15 +392,5 @@ ORDER BY month, product_name;
 
 ---
 
-## 🛠️ Tools & Techniques
-
-* BigQuery SQL
-* Google Analytics dataset
-* CTEs & Aggregations
-* `UNNEST` for nested data
-* Funnel & revenue analysis
-
----
-
 
 
